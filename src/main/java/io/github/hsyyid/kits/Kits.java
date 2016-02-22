@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import io.github.hsyyid.kits.cmds.KitAddExecutor;
 import io.github.hsyyid.kits.cmds.KitDeleteExecutor;
+import io.github.hsyyid.kits.cmds.KitBookExecutor;
 import io.github.hsyyid.kits.cmds.KitExecutor;
 import io.github.hsyyid.kits.cmds.KitIntervalExecutor;
 import io.github.hsyyid.kits.cmds.KitListExecutor;
@@ -140,6 +141,15 @@ public class Kits
 			.executor(new KitIntervalExecutor())
 			.extendedDescription(Text.of("To use /kit interval simply do /kit interval <kit name> <interval|one-time>"))
 			.build());
+
+                subcommands.put(Arrays.asList("book"), CommandSpec.builder()
+                        .permission("kits.book")
+                        .description(Text.of("Obtian a Kit's Book"))
+                        .arguments(GenericArguments.seq(GenericArguments.onlyOne(GenericArguments.string(Text.of("kit name")))))
+                        .executor(new KitBookExecutor())
+                        .extendedDescription(Text.of("To use /kit book simply do /kit book <book name>"))
+                        .build());
+
 
 		subcommands.put(Arrays.asList("delete"), CommandSpec.builder()
 			.permission("kits.delete")
