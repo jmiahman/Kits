@@ -168,6 +168,20 @@ public class ConfigManager
 		}
 	}
 
+	public static boolean isBookEnabledinKit(String kit)
+	{
+		ConfigurationNode node = Configs.getConfig(kitsConfig).getNode("kits", kit, "book");
+
+		if (node.getValue() != null)
+		{
+			return node.getBoolean();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	public static void setTimeRemaining(UUID uuid, String kit, double timeRemaining)
 	{
 		Configs.setValue(playerConfig, new Object[] { "players", uuid.toString(), kit, "time" }, timeRemaining);

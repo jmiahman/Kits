@@ -47,6 +47,11 @@ public class KitExecutor implements CommandExecutor
 				if (ConfigManager.canUseKit(player.getUniqueId(), kit))
 				{
 					Utils.givePlayerKit(player, items);
+			                if (ConfigManager.isBookEnabledinKit(kit))
+                			{
+                                        	Utils.givePlayerBook(player);
+					}
+
 					ConfigManager.setFalse(player.getUniqueId(), kit);
 
 					if (ConfigManager.getInterval(kit) instanceof Integer)
