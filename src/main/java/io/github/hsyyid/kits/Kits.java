@@ -145,9 +145,10 @@ public class Kits
                 subcommands.put(Arrays.asList("book"), CommandSpec.builder()
                         .permission("kits.book")
                         .description(Text.of("Obtian a Kit's Book"))
-                        .arguments(GenericArguments.seq(GenericArguments.onlyOne(GenericArguments.string(Text.of("kit name")))))
+                        /* .arguments(GenericArguments.seq(GenericArguments.onlyOne(GenericArguments.string(Text.of("book name"))))) */
                         .executor(new KitBookExecutor())
-                        .extendedDescription(Text.of("To use /kit book simply do /kit book <book name>"))
+                        /* .extendedDescription(Text.of("To use /kit book simply do /kit book <book name>")) */
+                        .extendedDescription(Text.of("To use /kit book simply do /kit book"))
                         .build());
 
 
